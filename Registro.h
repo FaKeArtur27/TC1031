@@ -6,6 +6,7 @@
 // transformar una fecha a numero decimal
 #include <ctime>  
 #include <iostream>
+//incluye las bibliotecas pala la implementacion de la clase registro
 
 //Representar un evento (registro) dentro de la bitacora
 class Registro {
@@ -17,6 +18,8 @@ class Registro {
     struct tm dateStruct;
     // Unix timestamp (segundos transcurridos desde el 1 de enero de 1970)
     time_t fechaHora;
+    // Valor entero de la direccion ip
+    unsigned int ip_value; 
 
   public:
     Registro();
@@ -30,6 +33,8 @@ class Registro {
     void setSegundos(std::string);
     void setIp(std::string);
     void setPuerto(std::string);
+    void setIp_value(unsigned int);
+    void setIp_value(std::string);
     void setFalla(std::string);
     
     std::string getAll();
@@ -41,14 +46,10 @@ class Registro {
     std::string getIp();
     std::string getPuerto();
     std::string getFalla();
+    unsigned int getIp_value();
     time_t getFechaHora();
 
-    //Otros
-    int binarySearch(std::vector<Registro> &vectorSorted, int key, int &compara);
-
-    void cambiarFormato(std::string cadena, std::string &hora, std::string &minuto, std::string &segundo);
-
-
+    void cambiarFormato(std::string fechahora, std::string &hora, std::string &minuto, std::string &segundo, std::string ip_puerto, std::string &ip, std::string &puerto);
 
     // Sobre carga de operadores
     bool operator ==(const Registro&);
